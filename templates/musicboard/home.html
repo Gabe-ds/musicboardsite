@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>ホーム</h1>
+    <div class="border border-danger pt-3 px-3 mb-3">
+        <h2>この掲示板について</h2>
+        <div class="message">
+            <p>当掲示板は音楽について議論し合うためのものです．</p>
+            <p>目的はずれな投稿はご遠慮ください．</p>
+            <p>なお．誹謗中傷に繋がる発言には気を付け，モラルのある議論をお楽しみください．</p>
+            <p class="bg-danger text-white">※ 何も表示されない場合は左上のHomeを押してください</p>
+        </div>
+    </div>
+    <div class="border border-warning p-3 px-3 mb-3">
+        <h1>最新のスレ投稿</h1>
+        <div class="border border-secondary pt-3 px-3">
+            {% for hoge in data_list %}
+            <p>- {{ hoge.board }}<br>
+            [{{ hoge.author }}] >>> [{{ hoge.content }}] posted at [{{ hoge.posted_at }}]</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="">
+        <a href="/musicboard/create">ボード作成</a>
+    </div>
+    <div class="border border-primary p-3 mt-3">
+        <h2>投稿一覧</h2>
+        {% for create in object_list %}
+        <div class="border border-secondary pt-3 px-3 mt-3">
+            <p>カテゴリ: {{ create.category }}</p>
+            <p>タイトル: {{ create.song }} / {{ create.artist }}</p>
+            <iframe width="560" height="315" src="{{ create.music }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>YouTube: <a href="{{ create.music }}" target="_blank">{{ create.music }}</a></p>
+            <p>説明: {{ create.subtitle }}</p>
+            <p><a href="{% url 'detail' create.pk %}">スレを見る</a></p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

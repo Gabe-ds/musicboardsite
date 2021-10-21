@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>メイン画面</title>
+    </head>
+    <body>
+        <p>ログインユーザー: {{ user.username }}</p>
+        <p><a href="{% url 'logout' %}">ログアウト</a></p>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h1>MusicBoardにログイン</h1>
+    <div class="mb-3">
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit class="btn btn-primary"">ログイン</button>
+        </form>
+    </div>
+    <p>アカウントを持っていない方は<a href="/login-app/signup/">こちら</a></p>
+{% endblock %}

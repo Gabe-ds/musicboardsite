@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h1>ボード作成</h1>
+    <p class="bg-danger text-white">※ Musicの欄はYouTubeの埋め込みコードのリンクを貼ってください</p>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="ボードを作成する">
+    </form>
+{% endblock %}

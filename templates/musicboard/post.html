@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h1>投稿フォーム</h1>
+    <h2>この掲示板について</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="投稿する">
+    </form>
+{% endblock %}

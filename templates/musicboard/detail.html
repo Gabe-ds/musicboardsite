@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="border border-primary pt-3 px-3 mb-3">
+        <div class="pb-3">
+            <h1>{{ detail.song }} / {{ detail.artist }} のスレ</h1>
+        </div>
+        <iframe width="560" height="315" src="{{ detail.music }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>YouTube: <a href="{{ dtail.music }}" target="_blank">{{ detail.music }}</a></p>
+        <p>説明: {{ detail.subtitle }}</p>
+        <p><a href="/musicboard/post/">コメントを投稿する</a></p>
+    </div>
+    <div class="border border-secondary pt-3 px-3">
+        <div class="">
+            <div class="pb-3">
+                <h1>コメント一覧</h1>
+            </div>
+            {% for hoge in data_list %}
+                <p>[{{ hoge.author }}] >>> [{{ hoge.content }}] posted at [{{ hoge.posted_at }}]</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
